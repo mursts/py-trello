@@ -3,6 +3,7 @@ from __future__ import with_statement, print_function, absolute_import
 import json
 import requests
 from requests_oauthlib import OAuth1
+import requests_toolbelt.adapters.appengine
 from trello.board import Board
 from trello.card import Card
 from trello.trellolist import List
@@ -11,6 +12,8 @@ from trello.member import Member
 from trello.webhook import WebHook
 from trello.exceptions import *
 from trello.label import Label
+
+requests_toolbelt.adapters.appengine.monkeypatch()
 
 try:
     # PyOpenSSL works around some issues in python ssl modules

@@ -2,6 +2,9 @@
 from __future__ import with_statement, print_function, absolute_import
 import os
 from requests_oauthlib import OAuth1Session
+import requests_toolbelt.adapters.appengine
+
+requests_toolbelt.adapters.appengine.monkeypatch()
 
 
 def create_oauth_token(expiration=None, scope=None, key=None, secret=None, name=None, output=True):
