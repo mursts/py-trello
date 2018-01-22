@@ -63,6 +63,14 @@ class Card(TrelloBase):
         self.label_ids = values
 
     @property
+    def dueComplete(self):
+        return self.dueComplete
+
+    @dueComplete.setter
+    def dueComplete(self, values):
+        self.label_ids = values
+
+    @property
     def list_labels(self):
         if self.labels:
             return self.labels
@@ -160,6 +168,7 @@ class Card(TrelloBase):
         card.idBoard = json_obj['idBoard']
         card.idList = json_obj['idList']
         card.idShort = json_obj['idShort']
+        card.dueComplete = json_obj['dueComplete']
         card.labels = Label.from_json_list(card.board, json_obj['labels'])
         card.dateLastActivity = dateparser.parse(json_obj['dateLastActivity'])
         if "attachments" in json_obj:
@@ -190,6 +199,7 @@ class Card(TrelloBase):
         self.shortUrl = json_obj['shortUrl']
         self.idMembers = json_obj['idMembers']
         self.idShort = json_obj['idShort']
+        self.dueComplete = json_obj['dueComplete']
         self.idList = json_obj['idList']
         self.idBoard = json_obj['idBoard']
         self.idLabels = json_obj['idLabels']
